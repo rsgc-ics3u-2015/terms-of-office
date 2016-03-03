@@ -36,8 +36,7 @@
 
 // 1: A single tile
 let c : String? = "2016"
-let f : String? = "2100"
-
+let f : String? = "2076"
 
 // Number of special years
 var specialYears : Int = 0
@@ -47,6 +46,10 @@ if let givenC = c, givenF = f {
     
     // Convert given inputs to integer
     if let currentYear = Int(givenC), futureYear = Int(givenF) {
+
+        // Debug – print outputs
+        print("current = \(currentYear)")
+        print("future = \(futureYear)")
         
         // Proceed only when the future year is greater than the current year
         if futureYear > currentYear {
@@ -68,7 +71,7 @@ if let givenC = c, givenF = f {
             }
             
             // Report how unusual this was
-            let actualPercentage : Float = ( Float(specialYears) / Float((futureYear - currentYear)) ) * Float(100)
+            let actualPercentage : Float = ( Float(specialYears) / Float((futureYear - currentYear + 1)) ) * Float(100)
             // Get left side of the percentage
             let leftSide = Int(actualPercentage)
             // Get right side of the percentage
