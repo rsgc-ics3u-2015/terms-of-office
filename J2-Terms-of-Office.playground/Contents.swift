@@ -32,8 +32,8 @@
 // c    - the current year, an integer
 // f    - the future year, an integer, greater than the current year
 
-let c : String? = "-2"
-let f : String? = "2"
+let c : String? = "1977"
+let f : String? = "2177"
 
 // Number of special years
 var specialYears : Int = 0
@@ -70,13 +70,18 @@ if let givenC = c, givenF = f {
             // Report how unusual this was
             let actualPercentage : Float = ( Float(specialYears) / Float((futureYear - currentYear + 1)) ) * Float(100)
             // Get left side of the percentage
-            let leftSide = Int(actualPercentage)
+            var leftSide = Int(actualPercentage)
             // Get right side of the percentage
             var rightSide = ( actualPercentage - Float(leftSide) ) * 10
             // Handle rounding, if needed
             if rightSide - Float(Int(rightSide)) >= 0.5 {
                 // Round up
                 rightSide = Float(Int(rightSide) + 1)
+                // Check for a whole (like 1.99 rounds up to 2.0)
+                if rightSide == 10 {
+                    leftSide += 1
+                    rightSide = 0
+                }
             } else {
                 // Leave as is
                 rightSide = Float(Int(rightSide))
