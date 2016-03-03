@@ -32,11 +32,8 @@
 // c    - the current year, an integer
 // f    - the future year, an integer, greater than the current year
 
-// Test cases
-
-// 1: A single tile
-let c : String? = "2016"
-let f : String? = "2076"
+let c : String? = "-2"
+let f : String? = "2"
 
 // Number of special years
 var specialYears : Int = 0
