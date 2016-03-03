@@ -67,13 +67,18 @@ if let givenC = c, givenF = f {
                 
             }
             
-            // Report how unusual this was 
+            // Report how unusual this was
             let actualPercentage : Float = ( Float(specialYears) / Float((futureYear - currentYear)) ) * Float(100)
+            // Get left side of the percentage
             let leftSide = Int(actualPercentage)
+            // Get right side of the percentage
             var rightSide = ( actualPercentage - Float(leftSide) ) * 10
+            // Handle rounding, if needed
             if rightSide - Float(Int(rightSide)) >= 0.5 {
+                // Round up
                 rightSide = Float(Int(rightSide) + 1)
             } else {
+                // Leave as is
                 rightSide = Float(Int(rightSide))
             }
             print("\(leftSide).\(Int(rightSide))%")
